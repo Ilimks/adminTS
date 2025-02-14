@@ -8,12 +8,13 @@ import Del from '../../createNews/createNewsIMG/Del.svg'
 import Warning from '../../createNews/createNewsIMG/Warning.svg'
 import axios from 'axios';
 import { useParams, useRouter } from 'next/navigation';
+import { NewsItem } from '../../types/news.types';
 
 export default function CreateNews(){
   const [newsList, setNewsList] = useState([])
-  const [newPost, setNewPost] = useState(null);
-  const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState('');
+  const [newPost, setNewPost] = useState<NewsItem | null>(null);
+  const [error, setError] = useState<string | null>(null);
+  const [successMessage, setSuccessMessage] = useState<string>('');
   const router = useRouter()
 
   const id = useParams().id
@@ -27,7 +28,7 @@ export default function CreateNews(){
 
   useEffect(()=>{
     if (newsList.length > 0) {
-        const found = newsList.find((el) => el.id === id);
+        const found = newsList.find((el:NewsItem) => el.id === id);
         found ? setNewPost(found): setNewPost(null)
     }
   }, [newsList, id])
