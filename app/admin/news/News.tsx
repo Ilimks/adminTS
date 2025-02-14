@@ -14,15 +14,16 @@ import icon1 from "./img/Icon1.svg";
 import vector2 from "./img/vector2.svg";
 import Image from 'next/image';
 import { useRouter } from 'next/navigation';
+import { NewsItem, NewsProps, SelectedFiles } from '../types/news.types';
 
-const fetcher = (url) => fetch(url).then((res) => res.json());
+const fetcher = (url: string) => fetch(url).then((res) => res.json());
 
-export default function News({ initialNews }) {
-  const [selectedNews, setSelectedNews] = useState([]);
+export default function News({ initialNews }: NewsProps) {
+  const [selectedNews, setSelectedNews] = useState<string[]>([]);
   const [openSelect, setOpenSelect] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false)
   const [showOptions, setShowOptions] = useState(false)
-  const [selectedFiles, setSelectedFiles] = useState({
+  const [selectedFiles, setSelectedFiles] = useState<SelectedFiles>({
     china: null,
     kyrgyzstan: null,
   });
@@ -35,7 +36,7 @@ export default function News({ initialNews }) {
     refreshInterval: 3600 * 1000, 
   });
 
-  const handleSelectNews = (id) => {
+  const handleSelectNews = (id: string) => {
     setSelectedNews((prevSelected) =>
       prevSelected.includes(id)
         ? prevSelected.filter((newsId) => newsId !== id)
@@ -65,8 +66,8 @@ export default function News({ initialNews }) {
     setShowOptions(!showOptions);
   };
 
-  const handleFileChange = (event, region) => {
-    const file = event.target.files[0];
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>, region: keyof SelectedFiles) => {
+    const file = event.target.files?.[0];
     if (file) {
       setSelectedFiles((prev) => ({ ...prev, [region]: file }));
     }
@@ -82,7 +83,7 @@ export default function News({ initialNews }) {
     router.push('/admin/createNews')
   }
 
-  const handleRemoveFile = (region) => {
+  const handleRemoveFile = (region: keyof SelectedFiles) => {
     setSelectedFiles((prev) => ({ ...prev, [region]: null }));
   };
 
@@ -129,8 +130,8 @@ export default function News({ initialNews }) {
           </div>
           <div className="news__box__content">
             {news.length > 0 ? (
-              news.map((el, idx) => (
-                <div className="news__box__content-card" key={idx} onClick={()=>router.push(`/admin/news/${el.id}`)}>
+              news.map((el:NewsItem, idx: number) => (
+                <div className="news__box__content-card" key={idx}>
                   {openSelect && (
                     <div className='position_checkbox'>
                       <label className="checkbox-container">
@@ -142,8 +143,8 @@ export default function News({ initialNews }) {
                       </label>
                     </div>
                   )}
-                  <img src={`https://ades.kg:8086/${el.cover}`} alt="" />
-                  <p>{el.title}</p>
+                  <img src={`https://ades.kg:8086/${el.cover}`} alt="" onClick={()=>router.push(`/admin/news/${el.id}`)}/>
+                  <p onClick={()=>router.push(`/admin/news/${el.id}`)}>{el.title}</p>
                 </div>
               ))
             ) : (
