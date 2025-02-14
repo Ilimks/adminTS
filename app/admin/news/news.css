@@ -1,0 +1,357 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+#news{
+    height: 100vh;
+    margin-top: 50px;
+    .news__box{
+        width: 95%;
+        margin: 0 auto;
+    }
+
+    .news__box__header{
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        h2{
+            font-weight: 500;
+            font-size: 30px;
+        }
+
+        .news__box__header-buttons__mobile{
+            display: none;
+        }
+
+        .news__box__header-buttons{
+            width: 40%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            button{
+                border-radius: 13px;
+                color: white;
+                border: none;
+                font-weight: 400;
+                font-size: 18px;
+                cursor: pointer;
+            }
+
+            button:nth-child(1){
+                width: 50%;
+                height: 30px;
+                background-color: #0B3C26;
+            }
+
+            button:nth-child(2){
+                width: 30%;
+                height: 30px;
+                background-color: #C8C8C8;
+                
+            }
+        }
+
+    }
+
+    .news__box__content{
+        margin-top: 50px;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+        gap: 6%;
+
+        .news__box__content-card{
+            width: 29%;
+            height: 250px;
+            font-size: 18px;
+            font-weight: 500;
+            position: relative;
+
+            img{
+                width: 100%;
+                height: 80%;
+                border-radius: 15px;
+                margin-bottom: 10px;
+            }
+        }
+    }
+}
+
+
+
+
+.news__box__header-buttons  .delete-button.active {
+    background-color: #FA5656  !important
+}
+
+.news__box-vectors{
+    position: relative;
+}
+
+.news__box-vector {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    bottom: 10%;
+    right: 10%;
+    z-index: 1100;
+}
+
+.news__options{
+    position: fixed;
+    right: 15%;
+    bottom: 15%;
+}
+.news__options-btn:nth-child(1){
+    padding: 6px 42px 6px 19px;
+    width: 200px;
+    background-color: #232323;
+    color: #fff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px ;
+    justify-content: end;
+
+}
+.news__options-btn{
+    padding: 6px 22px 6px 29px;
+    width: 200px;
+    background-color: #5EB147;
+    color: #fff;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    margin-bottom: 12px ;
+    justify-content: end;
+    border: none;
+    position: relative;
+    cursor: pointer;
+}
+
+.news__options-img{
+    position: absolute;
+    right:80%;
+}
+
+.cancel-button,
+.delete-button:hover{
+    cursor: pointer;
+}
+
+body{
+    position: relative;
+}
+
+.news__box__content-uploadFiles{
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 10000;
+
+.checkbox-container input {
+  visibility: hidden;
+  position: absolute;
+}
+
+
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #f0f0f0; 
+  border-radius: 50%;
+  border: 1px solid #ccc; 
+  transition: background-color 0.2s, border-color 0.2s; 
+}
+
+.checkbox-container input:checked + .checkmark {
+  border-color: #4CAF50; 
+}
+
+.checkbox-container .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked + .checkmark::after {
+  display: block;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.position_checkbox{
+    position: absolute;
+}
+    .news__box__content-uploadFiles__cards{
+        display: flex;
+        justify-content: space-between;
+        height: 80%;
+        width: 100%;
+        align-items: center;
+
+        .news__box__content-uploadFiles__card{
+            width: 49%;
+            height: 100%;
+            background-color: white;
+            border-radius: 15px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+
+            h4{
+                font-size: 24px;
+                font-weight: 400;
+            }
+
+            .upload-container:hover {
+                border-color: #999;
+              }
+                
+            .upload-container input {
+                display: none;
+            }
+            
+            .upload-container .c__news__form__img__upload {
+                padding: 6px 26px;
+                font-weight: 400;
+                font-size: 16px;
+                color: #666;
+                background-color: #f3f3f3;
+                border-radius: 8px;
+                display: block;
+                text-align: center;
+            }
+
+            .file-preview{
+                position: relative;
+
+                button{
+                    position: absolute;
+                    top: -15px;
+                    right: -15px;
+                    width: 25px;
+                    height: 25px;
+                    background-color: red;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                }
+            }
+                
+        }
+    }
+
+    button{
+        width: 100%;
+        height: 15%;
+        border-radius: 13px;
+        border: none;
+        background-color: green;
+        color: white;
+    }
+}
+
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5); /* Полупрозрачный черный */
+    z-index: 9999; /* Сделать его поверх контента */
+  }
+.cancel-button,
+.delete-button:hover{
+    cursor: pointer;
+}
+
+
+.checkbox-container input {
+  visibility: hidden;
+  position: absolute;
+}
+
+.checkbox-container {
+  display: inline-block;
+  position: relative;
+  cursor: pointer;
+  user-select: none;
+}
+
+.checkbox-container .checkmark {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #f0f0f0; 
+  border-radius: 50%;
+  border: 1px solid #ccc; 
+  transition: background-color 0.2s, border-color 0.2s; 
+}
+
+.checkbox-container input:checked + .checkmark {
+  border-color: #4CAF50; 
+}
+
+.checkbox-container .checkmark::after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+.checkbox-container input:checked + .checkmark::after {
+  display: block;
+  left: 9px;
+  top: 5px;
+  width: 5px;
+  height: 10px;
+  border: solid black;
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+}
+
+.position_checkbox{
+    position: absolute;
+    right: 10px;
+    top: -5px;
+}
