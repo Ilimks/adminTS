@@ -1,15 +1,15 @@
-'use client'
-import { useState } from 'react';
+'use client';
+import { useState, FC } from 'react';
 import Image from 'next/image';
 import './Header.css';
 import logo from './img/fone.svg';
 import quit from './img/Icon - Quit.svg';
 
-const Header = () => {
-  const [isPopupVisible, setIsPopupVisible] = useState(false);
+const Header: FC = () => {
+  const [isPopupVisible, setIsPopupVisible] = useState<boolean>(false);
 
   const togglePopup = () => {
-    setIsPopupVisible(!isPopupVisible);
+    setIsPopupVisible(prev => !prev);
   };
 
   return (
@@ -39,7 +39,9 @@ const Header = () => {
             <button onClick={() => {
               alert('Выход...');
               setIsPopupVisible(false);
-            }}>Да, выйти</button>
+            }}>
+              Да, выйти
+            </button>
           </div>
         </div>
       )}
