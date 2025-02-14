@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import './createNews.css';
 import plus from './createNewsIMG/plus.svg';
 import Image from 'next/image';

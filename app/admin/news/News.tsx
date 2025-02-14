@@ -131,7 +131,7 @@ export default function News({ initialNews }: NewsProps) {
           <div className="news__box__content">
             {news.length > 0 ? (
               news.map((el:NewsItem, idx: number) => (
-                <div className="news__box__content-card" key={idx} onClick={()=>router.push(`/admin/news/${el.id}`)}>
+                <div className="news__box__content-card" key={idx}>
                   {openSelect && (
                     <div className='position_checkbox'>
                       <label className="checkbox-container">
@@ -143,8 +143,8 @@ export default function News({ initialNews }: NewsProps) {
                       </label>
                     </div>
                   )}
-                  <img src={`https://ades.kg:8086/${el.cover}`} alt="" />
-                  <p>{el.title}</p>
+                  <img src={`https://ades.kg:8086/${el.cover}`} alt="" onClick={()=>router.push(`/admin/news/${el.id}`)}/>
+                  <p onClick={()=>router.push(`/admin/news/${el.id}`)}>{el.title}</p>
                 </div>
               ))
             ) : (
